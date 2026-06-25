@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Baking Business School</title>
+<meta name="description" content="The Baking Business School is the world's leading institution for baking entrepreneurship. Our mission is to transform baking talent into entrepreneurial excellence through world-class business education.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #C17817;
+    --amber-light: #F5E6CC;
+    --amber-dark: #8B5210;
+    --brown: #2C1A0E;
+    --brown-mid: #5C3D22;
+    --off-white: #FAF7F2;
+    --white: #FFFFFF;
+    --text: #1A1A1A;
+    --text-muted: #6B5744;
+    --border: rgba(44,26,14,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--brown);
+    text-decoration: none; letter-spacing: -0.3px;
+  }
+
+  .nav-logo span { color: var(--amber); }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+
+  .nav-links a {
+    font-size: 14px; font-weight: 400;
+    color: var(--text-muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--brown); }
+  .nav-links a.active { color: var(--brown); font-weight: 500; }
+
+  .nav-cta {
+    background: var(--amber); color: white !important;
+    padding: 9px 20px; border-radius: 6px;
+    font-weight: 500 !important; font-size: 14px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--amber-dark) !important; }
+
+  /* ABOUT HERO */
+  .about-hero {
+    padding: 140px 5% 80px;
+    background: var(--brown);
+    text-align: center;
+  }
+
+  .about-hero-eyebrow {
+    display: inline-block;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--amber);
+    background: rgba(193,120,23,0.15);
+    padding: 6px 14px; border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    max-width: 800px;
+    margin: 0 auto 24px;
+  }
+
+  .about-hero-sub {
+    font-size: 18px; color: rgba(255,255,255,0.7);
+    line-height: 1.7; max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* CONTENT SECTIONS */
+  .content-section { padding: 80px 5%; }
+  .content-inner { max-width: 800px; margin: 0 auto; }
+  .content-wide { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 700; color: var(--brown);
+    line-height: 1.2; margin-bottom: 24px;
+  }
+
+  .body-text {
+    font-size: 17px; color: var(--text-muted);
+    line-height: 1.8; margin-bottom: 20px;
+  }
+
+  .body-text strong { color: var(--brown); font-weight: 600; }
+
+  .standout {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-style: italic;
+    color: var(--brown);
+    line-height: 1.5;
+    padding: 32px 40px;
+    border-left: 4px solid var(--amber);
+    background: var(--off-white);
+    border-radius: 0 12px 12px 0;
+    margin: 36px 0;
+  }
+
+  /* OPENING */
+  .opening { background: var(--white); }
+
+  /* PURPOSE */
+  .purpose { background: var(--off-white); }
+
+  .purpose-statement {
+    background: var(--brown);
+    border-radius: 16px;
+    padding: 48px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .purpose-statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    color: white; line-height: 1.5;
+    font-style: italic;
+  }
+
+  .purpose-statement span { color: var(--amber); }
+
+  /* EXPERTISE GRID */
+  .expertise { background: var(--white); }
+
+  .expertise-intro { margin-bottom: 48px; }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .expertise-item {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 20px 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .expertise-item::before {
+    content: '';
+    position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+    background: var(--amber);
+  }
+
+  .expertise-item p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+  .expertise-item strong { display: block; font-size: 15px; color: var(--brown); font-weight: 600; margin-bottom: 4px; }
+
+  /* VISION MISSION */
+  .vision-mission { background: var(--off-white); }
+
+  .vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .vm-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    position: relative; overflow: hidden;
+  }
+
+  .vm-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--amber);
+  }
+
+  .vm-card-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 12px;
+  }
+
+  .vm-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--brown);
+    line-height: 1.6; font-style: italic;
+  }
+
+  /* VALUES */
+  .values { background: var(--white); }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .value-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+  }
+
+  .value-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--amber); margin-bottom: 10px;
+  }
+
+  .value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* PROMISE */
+  .promise {
+    background: var(--brown);
+    padding: 100px 5%;
+    text-align: center;
+  }
+
+  .promise-inner { max-width: 720px; margin: 0 auto; }
+
+  .promise .section-label { color: var(--amber); }
+
+  .promise h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 700; color: white;
+    line-height: 1.2; margin-bottom: 32px;
+  }
+
+  .promise-lines { margin-bottom: 48px; }
+
+  .promise-line {
+    font-size: 18px; color: rgba(255,255,255,0.8);
+    line-height: 1.8; margin-bottom: 8px;
+  }
+
+  .promise-line.highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: white;
+    font-style: italic; font-weight: 400;
+  }
+
+  .promise-line strong { color: var(--amber); }
+
+  .promise-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--amber); color: white;
+    padding: 16px 32px; border-radius: 8px;
+    font-size: 16px; font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .promise-cta:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer { background: var(--brown); color: white; padding: 48px 5% 32px; }
+
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 28px;
+  }
+
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: white; margin-bottom: 12px; }
+  .footer-logo span { color: var(--amber); }
+  .footer-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  .footer-col h4 { font-size: 13px; font-weight: 600; color: var(--amber); margin-bottom: 16px; letter-spacing: 0.5px; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: white; }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: rgba(255,255,255,0.35);
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .vm-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .nav-links { display: none; }
+    .purpose-statement { padding: 32px 24px; }
+    .standout { padding: 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">The Baking <span>Business</span> School</a>
+  <ul class="nav-links">
+    <li><a href="/#courses">Programmes</a></li>
+    <li><a href="/#sugar-blueprint">The Sugar Blueprint</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="/#testimonials">Results</a></li>
+    <li><a href="/#freebie" class="nav-cta">Free Guide</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-eyebrow">About The Baking Business School</div>
+  <h1>The World's Leading Institution for Baking Entrepreneurship</h1>
+  <p class="about-hero-sub">We were founded on a simple but powerful belief: exceptional baking talent deserves exceptional business success.</p>
+</div>
+
+<!-- OPENING -->
+<section class="content-section opening">
+  <div class="content-inner">
+    <div class="section-label">Who We Are</div>
+    <p class="body-text">The Baking Business School is a pioneering institution dedicated to transforming bakers into entrepreneurs and elevating the baking industry through world-class business education.</p>
+    <p class="body-text">For too long, bakers have been taught how to create extraordinary products but have been left to navigate the complexities of entrepreneurship entirely on their own. As a result, countless talented professionals remain trapped in cycles of overwork, underpricing, inconsistent income, and unsustainable growth.</p>
+
+    <div class="standout">
+      The Baking Business School exists to change that narrative.
+    </div>
+
+    <p class="body-text">We are building a new generation of baking entrepreneurs — equipped not only with technical excellence but with the strategic thinking, systems, leadership capabilities, and business acumen required to build profitable, scalable, and enduring enterprises.</p>
+    <p class="body-text">Our purpose extends beyond education. <strong>We are professionalising the business side of baking.</strong></p>
+    <p class="body-text">By combining practical business frameworks with entrepreneurial leadership development, we are helping bakers transition from self-employed creators into founders, CEOs, employers, and industry leaders.</p>
+  </div>
+</section>
+
+<!-- PURPOSE -->
+<section class="content-section purpose">
+  <div class="content-inner">
+    <div class="section-label">Our Belief</div>
+    <h2 class="section-title">Baking is more than a craft</h2>
+    <p class="body-text">At The Baking Business School, we believe baking is an economic engine — capable of creating wealth, employment, innovation, and multi-generational impact when supported by sound business principles.</p>
+    <p class="body-text">Our educational ecosystem equips bakers with the tools required to thrive in a rapidly evolving marketplace. We serve a diverse global community of ambitious individuals — from home bakers and cake artists to bakery owners and emerging food entrepreneurs — united by a shared vision: to build businesses that create both economic value and lasting impact.</p>
+
+    <div class="purpose-statement">
+      <p>Our ambition is not simply to educate bakers. <span>Our ambition is to establish baking entrepreneurship as a recognised discipline — and The Baking Business School as its global authority.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="content-section expertise">
+  <div class="content-wide">
+    <div class="expertise-intro content-inner" style="max-width:800px;">
+      <div class="section-label">What We Teach</div>
+      <h2 class="section-title">The complete entrepreneur</h2>
+      <p class="body-text">Unlike traditional culinary institutions that focus exclusively on technical mastery, we focus on the complete entrepreneur. Our programmes equip students with expertise across every dimension of building a sustainable baking business.</p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <strong>Business strategy and enterprise development</strong>
+        <p>Building businesses with structure, purpose, and long-term viability.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Financial management and profitability</strong>
+        <p>Understanding the numbers that drive sustainable growth.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Pricing psychology and revenue optimisation</strong>
+        <p>Charging what the work is worth — and communicating it with confidence.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Brand positioning and market differentiation</strong>
+        <p>Standing out in a crowded market with a clear, compelling identity.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Customer acquisition and retention</strong>
+        <p>Building a loyal customer base through systems, not hope.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Digital marketing and technology integration</strong>
+        <p>Reaching the right customers on the right channels, consistently.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Operational systems and scalability</strong>
+        <p>Building a business that can grow without breaking the founder.</p>
+      </div>
+      <div class="expertise-item">
+        <strong>Leadership, innovation, and entrepreneurial mindset</strong>
+        <p>Developing the thinking that separates founders from employees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION AND MISSION -->
+<section class="content-section vision-mission">
+  <div class="content-wide">
+    <div class="content-inner" style="max-width:800px; margin-bottom: 0;">
+      <div class="section-label">Direction</div>
+      <h2 class="section-title">Where we are going</h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card">
+        <div class="vm-card-label">Our Vision</div>
+        <p>To become the world's most trusted institution for baking entrepreneurship, empowering millions of bakers to build profitable, scalable, and enduring businesses.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-card-label">Our Mission</div>
+        <p>To transform baking talent into entrepreneurial excellence through world-class business education, practical systems, strategic leadership development, and a thriving global ecosystem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="content-section values">
+  <div class="content-wide">
+    <div class="content-inner" style="max-width:800px; margin-bottom: 0;">
+      <div class="section-label">What We Stand For</div>
+      <h2 class="section-title">Our values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-name">Excellence</div>
+        <p>We pursue the highest standards in everything we teach and build. Our programmes are rigorous, our materials are professional, and our certificates reflect real work done.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-name">Entrepreneurship</div>
+        <p>We cultivate founders, innovators, and business leaders — not just skilled bakers. Every programme is designed to develop entrepreneurial thinking alongside practical knowledge.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-name">Practicality</div>
+        <p>We prioritise implementation over information. Every lesson produces a real business output. Every module moves the student's business forward. Theory without application is not education.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-name">Integrity</div>
+        <p>We build businesses that are ethical, sustainable, and impactful. We say what we mean, deliver what we promise, and hold ourselves to the same standards we teach.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-name">Community</div>
+        <p>We believe growth accelerates when entrepreneurs learn together. The Baking Business School is building a global community of baking entrepreneurs who support, challenge, and elevate each other.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-name">Legacy</div>
+        <p>We build businesses that outlive their founders. Our programmes are not about quick wins — they are about building enterprises with depth, structure, and the capacity to endure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <div class="promise-inner">
+    <div class="section-label">Our Promise</div>
+    <h2>We do not simply teach people how to bake.</h2>
+    <div class="promise-lines">
+      <p class="promise-line">We teach them how to <strong>build institutions around their talent.</strong></p>
+      <p class="promise-line highlight">Because bakers should not merely survive.</p>
+      <p class="promise-line">They should <strong>lead industries.</strong></p>
+      <p class="promise-line">They should <strong>create wealth.</strong></p>
+      <p class="promise-line">They should <strong>build brands.</strong></p>
+      <p class="promise-line">They should <strong>employ others.</strong></p>
+      <p class="promise-line">And they should leave <strong>legacies that endure for generations.</strong></p>
+    </div>
+    <a href="/#courses" class="promise-cta">Explore Our Programmes →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">The Baking <span>Business</span> School</div>
+      <p class="footer-desc">The world's leading institution for baking entrepreneurship. Equipping bakers globally with the business knowledge, systems, and credentials to build enterprises that last.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="/#courses">All Programmes</a></li>
+        <li><a href="/#freebie">Free Guide</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Institution</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://instagram.com/TheBakingBusinessSchool">Instagram</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Baking Business School. All rights reserved.</span>
+    <span>thebakingbusinessschool.com</span>
+  </div>
+</footer>
+
+</body>
+</html>

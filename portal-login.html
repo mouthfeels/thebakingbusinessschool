@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal — The Baking Business School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --amber: #C17817; --amber-light: #F5E6CC; --amber-dark: #8B5210;
+    --brown: #2C1A0E; --brown-mid: #5C3D22; --off-white: #FAF7F2;
+    --white: #FFFFFF; --text: #1A1A1A; --text-muted: #6B5744;
+    --border: rgba(44,26,14,0.12);
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--brown); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .login-box {
+    background: white; border-radius: 20px; padding: 48px 44px;
+    width: 100%; max-width: 420px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+  }
+  .login-logo { text-align: center; margin-bottom: 32px; }
+  .login-logo-text { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brown); }
+  .login-logo-text span { color: var(--amber); }
+  .login-badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); background: var(--amber-light); padding: 4px 12px; border-radius: 20px; margin-top: 8px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--brown); text-align: center; margin-bottom: 8px; }
+  .login-sub { font-size: 14px; color: var(--text-muted); text-align: center; margin-bottom: 32px; line-height: 1.6; }
+  .form-group { margin-bottom: 20px; }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--brown); margin-bottom: 6px; }
+  input[type="password"] {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid var(--border); border-radius: 8px;
+    font-size: 15px; font-family: 'Inter', sans-serif;
+    color: var(--text); outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="password"]:focus { border-color: var(--amber); }
+  .btn-login {
+    width: 100%; background: var(--amber); color: white;
+    border: none; padding: 15px; border-radius: 8px;
+    font-size: 15px; font-weight: 500; font-family: 'Inter', sans-serif;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .btn-login:hover { background: var(--amber-dark); }
+  .error-msg { background: #FFF0F0; color: #C0392B; font-size: 13px; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; display: none; }
+  .login-help { text-align: center; margin-top: 24px; font-size: 13px; color: var(--text-muted); }
+  .login-help a { color: var(--amber); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="login-box">
+  <div class="login-logo">
+    <div class="login-logo-text">The Baking <span>Business</span> School</div>
+    <span class="login-badge">Student Portal</span>
+  </div>
+  <h1>Welcome Back</h1>
+  <p class="login-sub">Enter your course password to access the Baking Business Foundations Certificate programme.</p>
+  <div class="error-msg" id="errorMsg">Incorrect password. Please try again or email info@thebakingbusinessschool.com</div>
+  <div class="form-group">
+    <label for="password">Course Password</label>
+    <input type="password" id="password" placeholder="Enter your course password" autocomplete="current-password">
+  </div>
+  <button class="btn-login" onclick="checkPassword()">Enter the Portal</button>
+  <div class="login-help">
+    Don't have a password? <a href="/#courses">Enrol here</a> &nbsp;·&nbsp;
+    Need help? <a href="mailto:info@thebakingbusinessschool.com">Contact us</a>
+  </div>
+</div>
+
+<script>
+  // Change 'BBS2026' to whatever password you want students to use
+  // You can update this at any time
+  const COURSE_PASSWORD = 'BBS2026';
+
+  function checkPassword() {
+    const input = document.getElementById('password').value;
+    const error = document.getElementById('errorMsg');
+    if (input === COURSE_PASSWORD) {
+      window.location.href = 'courses/portal.html';
+    } else {
+      error.style.display = 'block';
+      document.getElementById('password').value = '';
+      document.getElementById('password').focus();
+    }
+  }
+
+  document.getElementById('password').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+</script>
+</body>
+</html>
