@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal — Baking Business Foundations</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --amber: #C17817; --amber-light: #F5E6CC; --amber-dark: #8B5210;
+    --brown: #2C1A0E; --brown-mid: #5C3D22; --off-white: #FAF7F2;
+    --white: #FFFFFF; --text: #1A1A1A; --text-muted: #6B5744;
+    --border: rgba(44,26,14,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.6; }
+
+  .portal-nav {
+    background: var(--brown); padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .portal-nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; color: white; text-decoration: none; }
+  .portal-nav-logo span { color: var(--amber); }
+  .portal-badge { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); background: rgba(193,120,23,0.2); padding: 4px 10px; border-radius: 4px; }
+
+  .portal-hero { background: var(--brown); padding: 48px 5% 40px; }
+  .portal-hero-inner { max-width: 900px; margin: 0 auto; }
+  .portal-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 36px); color: white; margin-bottom: 12px; }
+  .portal-hero p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.7; }
+  .progress-bar-wrap { margin-top: 24px; }
+  .progress-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .progress-bar { background: rgba(255,255,255,0.1); border-radius: 20px; height: 6px; width: 100%; max-width: 400px; }
+  .progress-fill { background: var(--amber); height: 6px; border-radius: 20px; width: 0%; transition: width 0.5s; }
+
+  .portal-body { max-width: 900px; margin: 0 auto; padding: 40px 5%; }
+
+  .module-card {
+    background: white; border-radius: 14px; border: 1px solid var(--border);
+    overflow: hidden; margin-bottom: 20px;
+    transition: box-shadow 0.2s;
+  }
+  .module-card:hover { box-shadow: 0 8px 32px rgba(44,26,14,0.08); }
+
+  .module-header {
+    display: flex; align-items: center; gap: 20px;
+    padding: 24px 28px; cursor: pointer;
+    user-select: none;
+  }
+  .module-num {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: var(--brown); display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+    color: var(--amber); flex-shrink: 0;
+  }
+  .module-num.complete { background: #2E7D32; color: white; }
+  .module-info { flex: 1; }
+  .module-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
+  .module-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--brown); font-weight: 700; }
+  .module-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .module-arrow { font-size: 20px; color: var(--text-muted); transition: transform 0.2s; }
+  .module-arrow.open { transform: rotate(180deg); }
+  .module-complete-badge { font-size: 12px; background: #F0F7F0; color: #2E7D32; font-weight: 600; padding: 4px 10px; border-radius: 20px; flex-shrink: 0; }
+
+  .module-body { display: none; border-top: 1px solid var(--border); padding: 28px 28px 28px 96px; }
+  .module-body.open { display: block; }
+
+  .lesson-list { list-style: none; margin-bottom: 24px; }
+  .lesson-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 14px; color: var(--text);
+  }
+  .lesson-item:last-child { border-bottom: none; }
+  .lesson-check { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; flex-shrink: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .lesson-check.checked { background: var(--amber); border-color: var(--amber); color: white; font-size: 12px; }
+  .lesson-name { flex: 1; }
+
+  .module-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-download {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--off-white); color: var(--brown);
+    border: 1px solid var(--border); padding: 10px 18px;
+    border-radius: 8px; font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .btn-download:hover { background: var(--amber-light); }
+  .btn-complete {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--amber); color: white;
+    border: none; padding: 10px 18px;
+    border-radius: 8px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .btn-complete:hover { background: var(--amber-dark); }
+  .btn-complete.done { background: #2E7D32; }
+
+  .submit-section {
+    background: var(--brown); border-radius: 16px; padding: 36px 32px;
+    text-align: center; margin-top: 32px;
+  }
+  .submit-section h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: white; margin-bottom: 12px; }
+  .submit-section p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .btn-submit { background: var(--amber); color: white; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-submit:hover { background: var(--amber-dark); }
+
+  @media (max-width: 600px) {
+    .module-body { padding: 24px 20px; }
+    .module-header { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="portal-nav">
+  <a href="/" class="portal-nav-logo">The Baking <span>Business</span> School</a>
+  <span class="portal-badge">Student Portal</span>
+</nav>
+
+<div class="portal-hero">
+  <div class="portal-hero-inner">
+    <h1>Baking Business Foundations Certificate</h1>
+    <p>Work through each module in order. Complete the lessons, download your worksheets, and mark each module complete before moving to the next.</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-label">Your progress — <span id="progressText">0 of 5 modules complete</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="portal-body">
+
+  <!-- MODULE 1 -->
+  <div class="module-card" id="mod1">
+    <div class="module-header" onclick="toggleModule('mod1')">
+      <div class="module-num" id="num1">1</div>
+      <div class="module-info">
+        <div class="module-label">Module 1</div>
+        <div class="module-title">Know Your Business</div>
+        <div class="module-meta">4 lessons &nbsp;·&nbsp; 2–3 hours &nbsp;·&nbsp; Worksheet included</div>
+      </div>
+      <span class="module-arrow" id="arrow1">▼</span>
+    </div>
+    <div class="module-body" id="body1">
+      <ul class="lesson-list">
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 1.1 — What Kind of Baking Business Do You Actually Have?</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 1.2 — Who Is Your Ideal Customer?</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 1.3 — What Is Your Competitive Position?</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 1.4 — Your Business Identity Statement</span></li>
+      </ul>
+      <div class="module-actions">
+        <a href="#" class="btn-download">⬇ Download Module 1 Workbook</a>
+        <button class="btn-complete" onclick="markComplete('mod1', 'num1', 'btn1', 1)" id="btn1">Mark Complete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module-card" id="mod2">
+    <div class="module-header" onclick="toggleModule('mod2')">
+      <div class="module-num" id="num2">2</div>
+      <div class="module-info">
+        <div class="module-label">Module 2</div>
+        <div class="module-title">Price for Profit</div>
+        <div class="module-meta">4 lessons &nbsp;·&nbsp; 2–3 hours &nbsp;·&nbsp; Pricing workbook included</div>
+      </div>
+      <span class="module-arrow" id="arrow2">▼</span>
+    </div>
+    <div class="module-body" id="body2">
+      <ul class="lesson-list">
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 2.1 — Why Bakers Underprice (And How to Stop)</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 2.2 — The True Cost of a Baked Product</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 2.3 — Building Your Pricing Formula</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 2.4 — Communicating Your Prices With Confidence</span></li>
+      </ul>
+      <div class="module-actions">
+        <a href="#" class="btn-download">⬇ Download Module 2 Workbook</a>
+        <button class="btn-complete" onclick="markComplete('mod2', 'num2', 'btn2', 2)" id="btn2">Mark Complete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module-card" id="mod3">
+    <div class="module-header" onclick="toggleModule('mod3')">
+      <div class="module-num" id="num3">3</div>
+      <div class="module-info">
+        <div class="module-label">Module 3</div>
+        <div class="module-title">Build Your Brand and Marketing</div>
+        <div class="module-meta">5 lessons &nbsp;·&nbsp; 3–4 hours &nbsp;·&nbsp; Marketing plan workbook included</div>
+      </div>
+      <span class="module-arrow" id="arrow3">▼</span>
+    </div>
+    <div class="module-body" id="body3">
+      <ul class="lesson-list">
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 3.1 — What Is a Brand? (And Why You Already Have One)</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 3.2 — Finding Your Brand Voice</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 3.3 — Where and How to Market Your Baking Business</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 3.4 — Content That Converts: What to Post and Why</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 3.5 — Your 30-Day Marketing Plan</span></li>
+      </ul>
+      <div class="module-actions">
+        <a href="#" class="btn-download">⬇ Download Module 3 Workbook</a>
+        <button class="btn-complete" onclick="markComplete('mod3', 'num3', 'btn3', 3)" id="btn3">Mark Complete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module-card" id="mod4">
+    <div class="module-header" onclick="toggleModule('mod4')">
+      <div class="module-num" id="num4">4</div>
+      <div class="module-info">
+        <div class="module-label">Module 4</div>
+        <div class="module-title">Plan Your Growth</div>
+        <div class="module-meta">4 lessons &nbsp;·&nbsp; 2–3 hours &nbsp;·&nbsp; 90-day growth plan workbook included</div>
+      </div>
+      <span class="module-arrow" id="arrow4">▼</span>
+    </div>
+    <div class="module-body" id="body4">
+      <ul class="lesson-list">
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 4.1 — Defining What Growth Means for Your Business</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 4.2 — An Honest Look at Where You Are Now</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 4.3 — Writing Goals That Actually Work: The SMART Framework</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 4.4 — Your 90-Day Growth Plan</span></li>
+      </ul>
+      <div class="module-actions">
+        <a href="#" class="btn-download">⬇ Download Module 4 Workbook</a>
+        <button class="btn-complete" onclick="markComplete('mod4', 'num4', 'btn4', 4)" id="btn4">Mark Complete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 5 -->
+  <div class="module-card" id="mod5">
+    <div class="module-header" onclick="toggleModule('mod5')">
+      <div class="module-num" id="num5">5</div>
+      <div class="module-info">
+        <div class="module-label">Module 5 — Capstone</div>
+        <div class="module-title">Your Baking Business Plan</div>
+        <div class="module-meta">5 lessons &nbsp;·&nbsp; 4–5 hours &nbsp;·&nbsp; Full business plan template included</div>
+      </div>
+      <span class="module-arrow" id="arrow5">▼</span>
+    </div>
+    <div class="module-body" id="body5">
+      <ul class="lesson-list">
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 5.1 — What a Baking Business Plan Actually Is</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 5.2 — Assembling Your Plan: Section by Section</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 5.3 — Your Financial Summary</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 5.4 — Reviewing and Finalising Your Plan</span></li>
+        <li class="lesson-item"><div class="lesson-check" onclick="toggleLesson(this)"></div><span class="lesson-name">Lesson 5.5 — Certificate Submission</span></li>
+      </ul>
+      <div class="module-actions">
+        <a href="#" class="btn-download">⬇ Download Module 5 Workbook</a>
+        <a href="#" class="btn-download">⬇ Download Business Plan Template</a>
+        <button class="btn-complete" onclick="markComplete('mod5', 'num5', 'btn5', 5)" id="btn5">Mark Complete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT SECTION -->
+  <div class="submit-section">
+    <h2>Ready to Submit for Your Certificate?</h2>
+    <p>Complete all five modules, finish your Baking Business Plan, and submit it for review. Your certificate will be issued within five working days of a successful submission.</p>
+    <a href="[YOUR_GOOGLE_FORM_LINK_HERE]" class="btn-submit" target="_blank">Submit Your Business Plan →</a>
+  </div>
+
+</div>
+
+<script>
+  function toggleModule(id) {
+    const body = document.getElementById('body' + id.replace('mod',''));
+    const arrow = document.getElementById('arrow' + id.replace('mod',''));
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    arrow.classList.toggle('open', !isOpen);
+  }
+
+  function toggleLesson(el) {
+    el.classList.toggle('checked');
+    if (el.classList.contains('checked')) el.innerHTML = '✓';
+    else el.innerHTML = '';
+  }
+
+  let completedModules = 0;
+
+  function markComplete(modId, numId, btnId, modNum) {
+    const num = document.getElementById(numId);
+    const btn = document.getElementById(btnId);
+    if (!btn.classList.contains('done')) {
+      num.classList.add('complete');
+      num.innerHTML = '✓';
+      btn.classList.add('done');
+      btn.textContent = 'Completed ✓';
+      completedModules++;
+      updateProgress();
+    }
+  }
+
+  function updateProgress() {
+    const pct = (completedModules / 5) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = completedModules + ' of 5 modules complete';
+  }
+
+  // Open first module by default
+  toggleModule('mod1');
+</script>
+</body>
+</html>
