@@ -23,47 +23,37 @@
     padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
   }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--brown); text-decoration: none; }
-  .nav-logo span { color: var(--amber); }
   .nav-links { display: flex; gap: 28px; list-style: none; }
   .nav-links a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--brown); }
   .nav-cta { background: var(--amber); color: white !important; padding: 9px 20px; border-radius: 6px; font-weight: 500 !important; font-size: 14px !important; }
   .nav-cta:hover { background: var(--amber-dark) !important; }
 
-  .blog-hero {
-    padding: 120px 5% 60px;
-    background: var(--brown);
-    text-align: center;
-  }
+  .blog-hero { padding: 120px 5% 60px; background: var(--brown); text-align: center; }
   .blog-hero-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; display: block; }
   .blog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); color: white; font-weight: 700; line-height: 1.2; max-width: 700px; margin: 0 auto 16px; }
   .blog-hero p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; line-height: 1.7; }
 
-  .blog-section { padding: 60px 5%; max-width: 1100px; margin: 0 auto; }
+  /* POST CARDS */
+  .posts-section { padding: 60px 5%; max-width: 1100px; margin: 0 auto; }
+  .posts-section h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--brown); margin-bottom: 32px; }
+  .posts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 60px; }
 
-  .post-card {
-    display: grid; grid-template-columns: 1fr 2fr; gap: 0;
-    border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 32px;
-  }
+  .post-card { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: block; }
   .post-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(44,26,14,0.1); }
+  .post-card-header { background: var(--brown); padding: 28px 24px; }
+  .post-tag { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); background: rgba(193,120,23,0.15); padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 14px; }
+  .post-card-header h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: white; font-weight: 700; line-height: 1.3; }
+  .post-card-body { padding: 24px; background: white; }
+  .post-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+  .post-excerpt { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .read-more { color: var(--amber); font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
 
-  .post-image {
-    background: var(--brown);
-    padding: 40px 32px;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .post-tag { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); background: rgba(193,120,23,0.15); padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
-  .post-image h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: white; font-weight: 700; line-height: 1.3; }
+  .divider { border: none; border-top: 2px solid var(--amber-light); margin: 20px 0 60px; }
 
-  .post-body { padding: 32px; background: var(--white); }
-  .post-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
-  .post-excerpt { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
-  .read-more { color: var(--amber); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
-  .read-more:hover { color: var(--amber-dark); }
-
-  /* Full post */
-  .full-post { max-width: 760px; margin: 0 auto; padding: 60px 5%; }
+  /* FULL POST */
+  .full-post { max-width: 760px; margin: 0 auto; padding: 0 5% 80px; }
+  .full-post-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; display: block; }
   .full-post-header { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
   .full-post-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); background: var(--amber-light); padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px; }
   .full-post h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 40px); color: var(--brown); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
@@ -74,23 +64,12 @@
   .full-post-content ul, .full-post-content ol { margin: 0 0 20px 24px; }
   .full-post-content li { font-size: 16px; color: var(--text); line-height: 1.75; margin-bottom: 8px; }
   .full-post-content hr { border: none; border-top: 2px solid var(--amber-light); margin: 36px 0; }
-  .full-post-content .highlight {
-    background: var(--off-white); border-left: 4px solid var(--amber);
-    padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 28px 0;
-    font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--brown); line-height: 1.6;
-  }
-  .monster-card {
-    background: var(--brown); border-radius: 12px; padding: 28px 28px 24px; margin: 28px 0;
-    border-left: 4px solid var(--amber);
-  }
+  .full-post-content .highlight { background: var(--off-white); border-left: 4px solid var(--amber); padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 28px 0; font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--brown); line-height: 1.6; }
+  .monster-card { background: var(--brown); border-radius: 12px; padding: 28px 28px 24px; margin: 28px 0; border-left: 4px solid var(--amber); }
   .monster-card h3 { color: var(--amber); font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; }
   .monster-card p { color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.75; margin-bottom: 12px; }
-  .monster-card .fix { color: var(--amber-light); font-size: 14px; font-style: italic; }
   .fix-label { color: var(--amber); font-weight: 600; font-size: 14px; }
-  .post-cta {
-    background: var(--off-white); border: 1px solid var(--border); border-radius: 16px;
-    padding: 36px 32px; text-align: center; margin-top: 48px;
-  }
+  .post-cta { background: var(--off-white); border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; text-align: center; margin-top: 48px; }
   .post-cta h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--brown); margin-bottom: 12px; }
   .post-cta p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
   .btn-primary { background: var(--amber); color: white; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-block; transition: background 0.2s; }
@@ -99,16 +78,13 @@
   footer { background: var(--brown); color: white; padding: 40px 5% 28px; }
   .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 8px; }
 
-  @media (max-width: 768px) {
-    .post-card { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-  }
+  @media (max-width: 768px) { .nav-links { display: none; } .posts-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo"><img src="/logo.png" alt="The Baking Business School" style="height:42px;width:auto;margin-right:10px;vertical-align:middle;"><span style="vertical-align:middle;">The Baking <span style="color:var(--amber);">Business</span> School</span></a>
+  <a href="/" class="nav-logo"><img src="logo.png" alt="The Baking Business School" style="height:44px;width:auto;vertical-align:middle;"></a>
   <ul class="nav-links">
     <li><a href="/#courses">Programmes</a></li>
     <li><a href="blog.html" class="active">Blog</a></li>
@@ -126,58 +102,137 @@
   <p>Practical strategies, real numbers, and honest advice for building a baking business that actually pays.</p>
 </div>
 
-<!-- FULL POST -->
-<article class="full-post">
+<!-- POST CARDS -->
+<section class="posts-section">
+  <h2>Latest Posts</h2>
+  <div class="posts-grid">
+
+    <a href="#post2" class="post-card">
+      <div class="post-card-header">
+        <span class="post-tag">Business Education</span>
+        <h3>Why Most Bakers Never Build Successful Businesses (And How to Break the Cycle)</h3>
+      </div>
+      <div class="post-card-body">
+        <div class="post-meta">The Baking Business School &nbsp;·&nbsp; June 2025</div>
+        <p class="post-excerpt">The baking industry is not suffering from a shortage of talent. It is suffering from a shortage of business education. Here is why — and what to do about it.</p>
+        <span class="read-more">Read more →</span>
+      </div>
+    </a>
+
+    <a href="#post1" class="post-card">
+      <div class="post-card-header">
+        <span class="post-tag">Business Strategy</span>
+        <h3>Your Sales Are Up 20% — So Why Are You Broke? The Hidden Math of Scaling a Bakery</h3>
+      </div>
+      <div class="post-card-body">
+        <div class="post-meta">The Baking Business School &nbsp;·&nbsp; June 2025</div>
+        <p class="post-excerpt">Revenue is higher than last year. Yet your bank account looks exactly the same. You are falling for a trap — and nobody taught you it existed.</p>
+        <span class="read-more">Read more →</span>
+      </div>
+    </a>
+
+  </div>
+  <hr class="divider">
+</section>
+
+<!-- POST 2 FULL -->
+<article class="full-post" id="post2">
+  <div class="full-post-header">
+    <span class="full-post-tag">Business Education</span>
+    <h1>Why Most Bakers Never Build Successful Businesses (And How to Break the Cycle)</h1>
+    <p class="full-post-meta">The Baking Business School &nbsp;·&nbsp; June 2025 &nbsp;·&nbsp; 7 min read</p>
+  </div>
+  <div class="full-post-content">
+    <p><em>"Great baking does not automatically create a great business."</em></p>
+    <p>That sentence may sound uncomfortable, but it explains why thousands of incredibly talented bakers work harder every year while seeing little improvement in their income.</p>
+    <p>The truth is this: the baking industry is not suffering from a shortage of talent. It is suffering from a shortage of business education.</p>
+    <p>Every day, passionate bakers invest countless hours perfecting recipes, mastering cake designs, learning new decorating techniques, and creating products their customers genuinely love. Yet many still struggle with inconsistent orders, unpredictable income, pricing anxiety, burnout, and the constant fear of where the next sale will come from.</p>
+    <div class="highlight">The problem is not the cake. The problem is the business.</div>
+
+    <h2>Nobody Taught Bakers How to Build Businesses</h2>
+    <p>Imagine graduating from medical school without learning how to diagnose patients. Or becoming an architect without understanding structural engineering. It sounds impossible.</p>
+    <p>Yet this is exactly what happens in the baking industry. Most bakers spend years learning the craft but almost no time learning entrepreneurship.</p>
+    <p>They know how to bake. But they were never taught:</p>
+    <ul>
+      <li>How to price for profit</li>
+      <li>How to attract premium customers</li>
+      <li>How to build a recognisable brand</li>
+      <li>How to create systems that reduce stress</li>
+      <li>How to market consistently</li>
+      <li>How to manage cash flow</li>
+      <li>How to scale without working eighteen-hour days</li>
+    </ul>
+    <p>Without these skills, even the most talented baker eventually reaches a ceiling.</p>
+
+    <h2>Baking Is a Profession. It Should Be Treated Like One.</h2>
+    <p>The world's most successful businesses are not built on talent alone. They are built on systems. Behind every thriving bakery is a business model, a pricing strategy, a customer acquisition system, a financial plan, a marketing engine, and an operational process.</p>
+    <div class="highlight">Success is rarely accidental. It is designed.</div>
+    <p>Unfortunately, too many bakers believe that working harder is the solution. It is not. Working smarter through better business systems is.</p>
+
+    <h2>The Biggest Mistake Bakers Make</h2>
+    <p>Many bakers believe the next decorating class, the next recipe, or the next equipment upgrade will transform their business. Sometimes those things help. But rarely do they solve the real problem.</p>
+    <p>If customers do not understand your value, they will not pay premium prices. If your marketing is inconsistent, great products remain invisible. If your pricing is wrong, more sales simply create more stress. If your business depends entirely on you, growth becomes impossible.</p>
+    <p>Business problems require business solutions.</p>
+
+    <h2>This Is Why We Created The Baking Business School</h2>
+    <p>The Baking Business School was founded on one simple belief: bakers deserve world-class business education. Not generic entrepreneurship advice. Not outdated theories. Not motivational speeches. Practical, proven business systems specifically designed for the baking industry.</p>
+    <p>Our mission is to help bakers move beyond survival and build businesses that are profitable, scalable, and sustainable.</p>
+
+    <h2>Imagine What Becomes Possible</h2>
+    <p>Imagine knowing exactly how much to charge without second-guessing yourself. Imagine attracting customers who value quality instead of negotiating discounts. Imagine running a business with systems instead of constant chaos. Imagine growing beyond being "the person who bakes" into becoming the CEO of a respected baking brand.</p>
+    <div class="highlight">That transformation does not happen by chance. It happens through education.</div>
+
+    <h2>The Future of Baking Belongs to Entrepreneurs</h2>
+    <p>The bakers who thrive over the next decade will not necessarily be the most talented. They will be the ones who understand business — those who embrace entrepreneurship, build stronger brands, employ more people, serve more communities, and leave lasting legacies.</p>
+    <p>That is the future we are building at The Baking Business School. Not simply teaching people how to bake. But equipping them to build businesses that endure.</p>
+
+    <div class="post-cta">
+      <h3>Ready to build a business that matches your talent?</h3>
+      <p>The Baking Business Foundations Certificate takes you from pricing confusion to a complete business plan — with a professional certificate at the end.</p>
+      <a href="https://bakingacademy5.gumroad.com/l/mrmilf" class="btn-primary">Enrol Now — £97 →</a>
+    </div>
+  </div>
+</article>
+
+<hr style="border:none;border-top:2px solid var(--amber-light);max-width:760px;margin:0 auto 60px;">
+
+<!-- POST 1 FULL -->
+<article class="full-post" id="post1">
   <div class="full-post-header">
     <span class="full-post-tag">Business Strategy</span>
     <h1>Your Sales Are Up 20% — So Why Are You Broke?</h1>
     <p class="full-post-meta">The Baking Business School &nbsp;·&nbsp; June 2025 &nbsp;·&nbsp; 6 min read</p>
   </div>
-
   <div class="full-post-content">
     <p>You open your monthly statement. Your heart sinks.</p>
     <p>Revenue is higher than last year. Way higher. The display case is emptier every afternoon. You are working harder, hiring more hands, and buying flour by the pallet.</p>
     <p>Yet your bank account looks exactly the same. Sometimes it looks worse.</p>
     <p>If this hits close to home, take a deep breath. You are not failing. You are falling for a trap. And the worst part? Nobody taught you this trap existed.</p>
-
     <div class="highlight">Call this trap "Scale Creep." It sneaks in when you grow. And it eats your profit while you sleep.</div>
-
     <p>Here is the hidden math of scaling — broken down into the three monsters you did not know you were feeding.</p>
     <hr>
-
     <div class="monster-card">
       <h3>Monster #1 — The Menu Monster (Too Many Favourites)</h3>
-      <p>When you started, you made five things perfectly. Now you have fifteen pastries, eight breads, and four cakes. You added them because customers asked.</p>
-      <p>Here is the brutal truth: complexity is expensive. Every new item means new ingredients to store, new prep time for your bakers, and new oven slots taken up.</p>
-      <p>If you spend three days making a croissant but price it like a muffin that takes one hour, you just paid yourself £1.50 an hour for that croissant.</p>
-      <p class="fix"><span class="fix-label">The Fix:</span> Map your top ten sellers. Twenty percent of your menu makes eighty percent of your profit. The rest are time-thieves. Move them to Weekly Specials. Make them rare. Make them expensive. Protect your core profit-makers.</p>
+      <p>When you started, you made five things perfectly. Now you have fifteen pastries, eight breads, and four cakes. You added them because customers asked. Here is the brutal truth: complexity is expensive.</p>
+      <p class="fix-label">The Fix:</p>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.75;">Map your top ten sellers. Twenty percent of your menu makes eighty percent of your profit. Move the rest to Weekly Specials. Make them rare. Make them expensive. Protect your core profit-makers.</p>
     </div>
-
     <div class="monster-card">
       <h3>Monster #2 — The Labour Lag (Hiring Before You Are Ready)</h3>
-      <p>Sales go up. You get tired. So you hire a new baker. But here is the lie we tell ourselves: "If I hire someone, I will get my life back."</p>
-      <p>For the first three months, a new hire actually costs you time. You train them. You fix their mistakes. You re-weigh their dough. They use twenty percent more ingredients due to waste. You just doubled your labour cost to produce thirty percent more product. That is a loss-making trade.</p>
-      <p class="fix"><span class="fix-label">The Fix:</span> Do not hire for busy. Hire for systems. Before you bring on a new pair of hands, write down exactly how you shape a loaf. Time it. Record it. Create a checklist. Only when your systems are foolproof does a new hire become profitable.</p>
+      <p>Sales go up. You get tired. So you hire a new baker. For the first three months, a new hire actually costs you time. You train them. You fix their mistakes. You doubled your labour cost to produce thirty percent more product. That is a loss-making trade.</p>
+      <p class="fix-label">The Fix:</p>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.75;">Do not hire for busy. Hire for systems. Write down exactly how you do everything, time it, create a checklist. Only when your systems are foolproof does a new hire become profitable.</p>
     </div>
-
     <div class="monster-card">
       <h3>Monster #3 — The Cash-Flow Cliff (Paying for Today, Getting Paid Tomorrow)</h3>
-      <p>Your wholesale cafe orders double. You buy double the flour, butter, and packaging. You pay your supplier today. But that cafe pays you in thirty days.</p>
-      <p>For an entire month you are bleeding cash to make bread you have not been paid for yet. Meanwhile your rent is due, your mixer breaks, and your staff needs paying.</p>
-      <p>You are growing — but you are growing broke.</p>
-      <p class="fix"><span class="fix-label">The Fix:</span> Offer a five percent discount to cafes that pay within seven days. Or demand a fifty percent deposit on large wholesale orders. If they say no, walk away. A sale that puts you into debt is not a sale. It is a liability.</p>
+      <p>Your wholesale cafe orders double. You buy double the supplies today. But that cafe pays you in thirty days. For an entire month you are bleeding cash to make bread you have not been paid for yet.</p>
+      <p class="fix-label">The Fix:</p>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.75;">Offer a five percent discount to cafes that pay within seven days. Or demand a fifty percent deposit on large orders. A sale that puts you into debt is not a sale. It is a liability.</p>
     </div>
-
     <hr>
     <h2>Your New North Star</h2>
-    <p>Stop measuring success by revenue. Measure success by Profit Per Hour.</p>
-    <p>Take your total profit for the week. Divide it by the total hours you and your staff worked. If that number is lower than what you pay your junior baker, you are essentially volunteering at your own business.</p>
-
+    <p>Stop measuring success by revenue. Measure success by Profit Per Hour. Take your total profit for the week. Divide it by total hours worked. If that number is lower than what you pay your junior baker, you are volunteering at your own business.</p>
     <div class="highlight">You do not need to bake better bread. You just need to make smarter business decisions.</div>
-
-    <p>You did not open a bakery to become an accountant. You opened it to feed people and feel joy. But joy does not pay the power bill.</p>
-    <p>At The Baking Business School, we teach you the Baker's Maths of Profit. We show you exactly which items to cut, how to price for real profit, and how to grow without drowning.</p>
-
     <div class="post-cta">
       <h3>Start with the free Menu Profitability Audit</h3>
       <p>Find out exactly which item on your menu is secretly robbing you blind. Takes fifteen minutes. Free to download.</p>
