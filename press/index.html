@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Baking Business Strategy — Press Kit | The Baking Business School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #2C1A0E;
+    --amber: #C17817;
+    --cream: #F5E6CC;
+    --offwhite: #FAF7F2;
+    --amber-deep: #8F5A10;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--offwhite);
+    color: var(--brown);
+    line-height: 1.65;
+  }
+  h1, h2, h3, .display {
+    font-family: 'Playfair Display', serif;
+    color: var(--brown);
+    font-weight: 600;
+  }
+  a { color: var(--amber-deep); }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* Header ticket strip */
+  .ticket-bar {
+    background: var(--brown);
+    color: var(--cream);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 0;
+  }
+  .ticket-bar .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ticket-bar span { opacity: 0.85; }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(44,26,14,0.12);
+  }
+  .hero .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    max-width: 640px;
+  }
+  .hero .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--amber-deep);
+    margin-top: 14px;
+    max-width: 560px;
+  }
+  .hero .byline {
+    margin-top: 22px;
+    font-size: 15px;
+    color: rgba(44,26,14,0.75);
+  }
+  .hero-links {
+    margin-top: 32px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--brown);
+  }
+  .btn-primary {
+    background: var(--brown);
+    color: var(--cream);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--brown);
+  }
+
+  /* Perforated divider — the signature element: a torn order-ticket seam */
+  .seam {
+    position: relative;
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      rgba(44,26,14,0.35) 0, rgba(44,26,14,0.35) 6px,
+      transparent 6px, transparent 14px
+    );
+    margin: 0;
+  }
+
+  section { padding: 56px 0; }
+  section.tinted { background: var(--cream); }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  section h2 { font-size: 26px; margin-bottom: 18px; }
+  section p { max-width: 640px; font-size: 16px; color: rgba(44,26,14,0.88); margin-bottom: 14px; }
+
+  /* Two column: cover mock + copy */
+  .book-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .cover-mock {
+    width: 200px;
+    height: 300px;
+    background: linear-gradient(160deg, var(--brown) 0%, #45301C 100%);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 26px 18px;
+    color: var(--cream);
+    box-shadow: 6px 6px 0 rgba(44,26,14,0.15);
+  }
+  .cover-mock .mark {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--amber);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    margin-bottom: 16px;
+    color: var(--amber);
+  }
+  .cover-mock .t {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.3;
+  }
+  .cover-mock .s {
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    opacity: 0.8;
+    text-transform: uppercase;
+  }
+  .cover-note {
+    font-size: 12px;
+    color: rgba(44,26,14,0.55);
+    margin-top: 10px;
+    text-align: center;
+    max-width: 200px;
+  }
+
+  /* Fact strip */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(44,26,14,0.15);
+  }
+  .fact .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--amber-deep);
+  }
+  .fact .lbl {
+    font-size: 13px;
+    color: rgba(44,26,14,0.7);
+    margin-top: 4px;
+  }
+
+  /* Author block */
+  .author-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--brown);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* Angles list */
+  .angles {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .angles li {
+    padding-left: 22px;
+    position: relative;
+    font-size: 15px;
+    color: rgba(44,26,14,0.88);
+  }
+  .angles li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--amber-deep);
+    font-weight: 600;
+  }
+
+  /* Press contact card */
+  .contact-card {
+    background: var(--brown);
+    color: var(--offwhite);
+    border-radius: 4px;
+    padding: 36px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .contact-card h3 { color: var(--offwhite); font-size: 20px; margin-bottom: 8px; }
+  .contact-card p { color: rgba(250,247,242,0.75); font-size: 14px; max-width: 380px; margin-bottom: 0; }
+  .contact-card .addr { font-size: 14px; }
+  .contact-card .addr div { margin-bottom: 6px; }
+  .contact-card a { color: var(--amber); }
+
+  footer {
+    padding: 32px 0 48px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(44,26,14,0.55);
+  }
+
+  @media (max-width: 620px) {
+    .hero h1 { font-size: 30px; }
+    .book-row, .author-row { grid-template-columns: 1fr; }
+    .cover-mock { margin: 0 auto; }
+    .contact-card { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ticket-bar">
+  <div class="wrap">
+    <span>The Baking Business School</span>
+    <span>Press &amp; media enquiries</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">New release — for editorial consideration</div>
+    <h1>The Baking Business Strategy</h1>
+    <p class="subtitle">How to turn your baking skills into a profitable, sustainable and scalable business</p>
+    <p class="byline">By O. O. Charles — Founder, The Baking Business School</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="https://books2read.com/u/b5dwVG">Get the book</a>
+      <a class="btn btn-secondary" href="mailto:info@thebakingbusinessschool.com">Request a review copy</a>
+    </div>
+  </div>
+</header>
+
+<div class="seam"></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">About the book</div>
+    <div class="book-row">
+      <div>
+        <div class="cover-mock">
+          <div class="mark">B</div>
+          <div class="t">The Baking Business Strategy</div>
+          <div class="s">O. O. Charles</div>
+        </div>
+        <p class="cover-note">Cover artwork available on request</p>
+      </div>
+      <div>
+        <h2>Skilled in the kitchen. Untrained in the business behind it.</h2>
+        <p>Most baking education teaches technique: recipes, decoration, presentation. Almost none of it teaches the business decisions that decide whether a bakery survives — pricing, positioning, systems, marketing and long-term sustainability.</p>
+        <p>The Baking Business Strategy is written for baking entrepreneurs who already know how to bake, and now need to know how to run a business. It sets out the strategic thinking behind pricing for profit, building repeatable systems, positioning a brand, and scaling without losing quality or sanity.</p>
+        <div class="facts">
+          <div class="fact"><div class="num">18</div><div class="lbl">Chapters</div></div>
+          <div class="fact"><div class="num">2026</div><div class="lbl">Publication year</div></div>
+          <div class="fact"><div class="num">Global</div><div class="lbl">Available in print &amp; ebook</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="seam"></div>
+
+<section class="tinted">
+  <div class="wrap">
+    <div class="section-label">About the author</div>
+    <div class="author-row">
+      <div class="avatar">OC</div>
+      <div>
+        <h2>O. O. Charles</h2>
+        <p>O. O. Charles is the founder of The Baking Business School, a global education brand for baking entrepreneurs. He holds a BSc in Food Science and Technology and multiple certifications in digital marketing, business analytics and coaching, and is a professional member of NIFST, ICES and Rotary International. He is also the host of Baking Motivation with CakePope.</p>
+        <p>Author information, headshot and additional press materials are available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="seam"></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Story angles for editors</div>
+    <h2>Ways this fits your pages</h2>
+    <ul class="angles">
+      <li>Book review or "new releases for baking professionals" round-up</li>
+      <li>Author interview on the business side of cake decorating and baking</li>
+      <li>Short contributor article on pricing, positioning or scaling a baking business</li>
+      <li>Feature tying craft skill to business survival — a gap most baking media doesn't cover</li>
+    </ul>
+  </div>
+</section>
+
+<div class="seam"></div>
+
+<section class="tinted">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h3>Press &amp; review copies</h3>
+        <p>Get in touch for a review copy, interview, or press materials — cover art, author bio and additional images available on request.</p>
+      </div>
+      <div class="addr">
+        <div><a href="mailto:info@thebakingbusinessschool.com">info@thebakingbusinessschool.com</a></div>
+        <div><a href="mailto:oocharles@thebakingbusinessschool.com">oocharles@thebakingbusinessschool.com</a></div>
+        <div><a href="https://books2read.com/u/b5dwVG">books2read.com/u/b5dwVG</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  The Baking Business School — thebakingbusinessschool.com
+</footer>
+
+</body>
+</html>
