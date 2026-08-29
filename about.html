@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — The Baking Business School</title>
-<meta name="description" content="The Baking Business School is the world's leading institution for baking entrepreneurship. Our mission is to transform baking talent into entrepreneurial excellence through world-class business education.">
+<title>The Baking Business School - World-Class Business Education for Bakers</title>
+<meta name="description" content="The Baking Business School is the world's leading institution for baking entrepreneurship. Build a profitable, scalable baking business with our structured programmes and professional certificates.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,6 +31,7 @@
     line-height: 1.6;
   }
 
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(255,255,255,0.96);
@@ -43,8 +44,10 @@
 
   .nav-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 18px; color: var(--brown);
-    text-decoration: none; letter-spacing: -0.3px;
+    font-size: 18px;
+    color: var(--brown);
+    text-decoration: none;
+    letter-spacing: -0.3px;
   }
 
   .nav-logo span { color: var(--amber); }
@@ -58,55 +61,145 @@
   }
 
   .nav-links a:hover { color: var(--brown); }
-  .nav-links a.active { color: var(--brown); font-weight: 500; }
 
   .nav-cta {
-    background: var(--amber); color: white !important;
-    padding: 9px 20px; border-radius: 6px;
-    font-weight: 500 !important; font-size: 14px !important;
+    background: var(--amber);
+    color: white !important;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    font-size: 14px !important;
     transition: background 0.2s !important;
   }
 
   .nav-cta:hover { background: var(--amber-dark) !important; }
 
-  /* ABOUT HERO */
-  .about-hero {
-    padding: 140px 5% 80px;
-    background: var(--brown);
-    text-align: center;
+  /* HERO */
+  .hero {
+    padding: 140px 5% 100px;
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 92vh;
   }
 
-  .about-hero-eyebrow {
+  .hero-eyebrow {
     display: inline-block;
     font-size: 12px; font-weight: 600;
     letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--amber);
-    background: rgba(193,120,23,0.15);
-    padding: 6px 14px; border-radius: 20px;
-    margin-bottom: 28px;
+    background: var(--amber-light);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
   }
 
-  .about-hero h1 {
+  .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
+    font-size: clamp(36px, 4vw, 52px);
     font-weight: 700;
-    color: white;
     line-height: 1.15;
+    color: var(--brown);
+    margin-bottom: 20px;
     letter-spacing: -0.5px;
-    max-width: 800px;
-    margin: 0 auto 24px;
   }
 
-  .about-hero-sub {
-    font-size: 18px; color: rgba(255,255,255,0.7);
-    line-height: 1.7; max-width: 620px;
-    margin: 0 auto;
+  .hero h1 em { font-style: italic; color: var(--amber); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 440px;
   }
 
-  /* CONTENT SECTIONS */
-  .content-section { padding: 80px 5%; }
-  .content-inner { max-width: 800px; margin: 0 auto; }
-  .content-wide { max-width: 1100px; margin: 0 auto; }
+  .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--amber);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    color: var(--brown);
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .btn-secondary:hover { color: var(--amber); }
+
+  .hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .stat-card:first-child {
+    grid-column: 1 / -1;
+    background: var(--brown);
+    color: white;
+    display: flex; align-items: center; gap: 20px;
+    text-align: left;
+    padding: 28px 24px;
+  }
+
+  .stat-icon {
+    width: 52px; height: 52px;
+    background: var(--amber);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+  }
+
+  .stat-card:first-child .stat-label { font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px; }
+  .stat-card:first-child .stat-value { font-family: 'Playfair Display', serif; font-size: 22px; color: white; font-weight: 700; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--amber);
+    display: block; margin-bottom: 4px;
+  }
+
+  .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    padding: 20px 5%;
+    background: var(--brown);
+    display: flex; align-items: center; justify-content: center;
+    gap: 48px; flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-size: 13px; color: rgba(255,255,255,0.75);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+
+  /* SECTION BASE */
+  section { padding: 80px 5%; }
 
   .section-label {
     font-size: 11px; font-weight: 600;
@@ -116,186 +209,302 @@
 
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 700; color: var(--brown);
-    line-height: 1.2; margin-bottom: 24px;
-  }
-
-  .body-text {
-    font-size: 17px; color: var(--text-muted);
-    line-height: 1.8; margin-bottom: 20px;
-  }
-
-  .body-text strong { color: var(--brown); font-weight: 600; }
-
-  .standout {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px, 2.5vw, 26px);
-    font-style: italic;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
     color: var(--brown);
-    line-height: 1.5;
-    padding: 32px 40px;
-    border-left: 4px solid var(--amber);
-    background: var(--off-white);
-    border-radius: 0 12px 12px 0;
-    margin: 36px 0;
+    line-height: 1.2; margin-bottom: 16px;
   }
 
-  /* OPENING */
-  .opening { background: var(--white); }
-
-  /* PURPOSE */
-  .purpose { background: var(--off-white); }
-
-  .purpose-statement {
-    background: var(--brown);
-    border-radius: 16px;
-    padding: 48px;
-    margin-top: 40px;
-    text-align: center;
+  .section-sub {
+    font-size: 16px; color: var(--text-muted);
+    line-height: 1.7; max-width: 560px;
   }
 
-  .purpose-statement p {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 2.5vw, 30px);
-    color: white; line-height: 1.5;
-    font-style: italic;
-  }
+  /* PROBLEMS */
+  .problems { background: var(--white); }
+  .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
 
-  .purpose-statement span { color: var(--amber); }
-
-  /* EXPERTISE GRID */
-  .expertise { background: var(--white); }
-
-  .expertise-intro { margin-bottom: 48px; }
-
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-
-  .expertise-item {
-    background: var(--off-white);
+  .problem-card {
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 20px 20px 20px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .expertise-item::before {
-    content: '';
-    position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
-    background: var(--amber);
-  }
-
-  .expertise-item p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-  .expertise-item strong { display: block; font-size: 15px; color: var(--brown); font-weight: 600; margin-bottom: 4px; }
-
-  /* VISION MISSION */
-  .vision-mission { background: var(--off-white); }
-
-  .vm-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .vm-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px 32px;
+    padding: 28px 24px;
     position: relative; overflow: hidden;
   }
 
-  .vm-card::before {
+  .problem-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--amber);
+  }
+
+  .problem-card h3 { font-size: 16px; font-weight: 600; color: var(--brown); margin-bottom: 10px; margin-top: 12px; }
+  .problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  .problem-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: var(--amber-light); line-height: 1;
+  }
+
+  /* COURSES */
+  .courses { background: var(--off-white); }
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+
+  .course-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(44,26,14,0.1); }
+
+  .course-card.featured {
+    border: 2px solid var(--amber);
+    position: relative;
+  }
+
+  .course-card.featured::before {
+    content: 'Featured Programme';
+    position: absolute; top: -1px; right: 20px;
+    background: var(--amber);
+    color: white;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .course-header {
+    padding: 28px 24px 20px;
+    background: var(--brown);
+  }
+
+  .course-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--amber);
+    background: rgba(193,120,23,0.15);
+    padding: 4px 10px; border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  .course-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: white; line-height: 1.3;
+  }
+
+  .course-body { padding: 20px 24px 24px; }
+  .course-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+  .course-features { list-style: none; margin-bottom: 24px; }
+
+  .course-features li {
+    font-size: 13px; color: var(--text);
+    padding: 6px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .course-features li:last-child { border-bottom: none; }
+  .check { color: var(--amber); font-weight: 700; font-size: 15px; }
+
+  .course-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 16px; }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: var(--brown);
+  }
+
+  .price-label { font-size: 13px; color: var(--text-muted); }
+
+  .btn-course {
+    display: block; width: 100%; text-align: center;
+    background: var(--amber); color: white;
+    padding: 12px; border-radius: 8px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none; transition: background 0.2s;
+  }
+
+  .btn-course:hover { background: var(--amber-dark); }
+
+  /* LEAD MAGNET */
+  .lead-magnet { background: var(--brown); color: white; padding: 80px 5%; }
+  .lead-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .lead-magnet .section-title { color: white; }
+  .lead-magnet .section-sub { color: rgba(255,255,255,0.7); max-width: 100%; }
+
+  .email-form {
+    display: flex; gap: 12px; margin-top: 36px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+
+  .email-input {
+    flex: 1; padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white; font-size: 14px;
+    font-family: 'Inter', sans-serif; outline: none;
+  }
+
+  .email-input::placeholder { color: rgba(255,255,255,0.45); }
+  .email-input:focus { border-color: var(--amber); }
+
+  .btn-email {
+    background: var(--amber); color: white;
+    border: none; padding: 14px 22px;
+    border-radius: 8px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: background 0.2s; white-space: nowrap;
+  }
+
+  .btn-email:hover { background: var(--amber-dark); }
+  .lead-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--white); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 48px; }
+
+  .testi-card { border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
+  .stars { color: var(--amber); font-size: 15px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-text { font-size: 15px; color: var(--text); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--amber-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 600; color: var(--amber-dark);
+  }
+
+  .testi-name { font-size: 14px; font-weight: 500; color: var(--brown); }
+  .testi-role { font-size: 12px; color: var(--text-muted); }
+
+  /* ABOUT — INSTITUTIONAL */
+  .about {
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-text .section-sub { max-width: 100%; margin-bottom: 20px; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 28px 0;
+  }
+
+  .about-stat {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .about-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--amber); display: block;
+  }
+
+  .about-stat-label { font-size: 12px; color: var(--text-muted); }
+
+  .about-image {
+    background: var(--brown);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+  }
+
+  .about-image-icon { font-size: 64px; margin-bottom: 20px; }
+
+  .about-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-style: italic;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .about-quote-attr { font-size: 13px; color: var(--amber); margin-top: 14px; }
+
+  /* SUGAR BLUEPRINT */
+  .sugar-blueprint {
+    background: var(--off-white);
+    padding: 80px 5%;
+    border-top: 1px solid var(--border);
+  }
+
+  .sugar-inner { max-width: 900px; margin: 0 auto; }
+
+  .sugar-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center; margin-top: 48px;
+  }
+
+  .sugar-book {
+    background: var(--brown);
+    border-radius: 16px; padding: 48px 36px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .sugar-book::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 4px;
     background: var(--amber);
   }
 
-  .vm-card-label {
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 12px;
-  }
+  .sugar-book-icon { font-size: 72px; margin-bottom: 20px; display: block; }
 
-  .vm-card p {
+  .sugar-book-title {
     font-family: 'Playfair Display', serif;
-    font-size: 18px; color: var(--brown);
-    line-height: 1.6; font-style: italic;
+    font-size: 26px; font-weight: 700;
+    color: white; margin-bottom: 8px;
   }
 
-  /* VALUES */
-  .values { background: var(--white); }
+  .sugar-book-pub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
 
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 48px;
-  }
+  .sugar-links { display: flex; flex-direction: column; gap: 12px; }
 
-  .value-card {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 24px;
-  }
-
-  .value-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px; font-weight: 700;
-    color: var(--amber); margin-bottom: 10px;
-  }
-
-  .value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-
-  /* PROMISE */
-  .promise {
-    background: var(--brown);
-    padding: 100px 5%;
-    text-align: center;
-  }
-
-  .promise-inner { max-width: 720px; margin: 0 auto; }
-
-  .promise .section-label { color: var(--amber); }
-
-  .promise h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 3vw, 44px);
-    font-weight: 700; color: white;
-    line-height: 1.2; margin-bottom: 32px;
-  }
-
-  .promise-lines { margin-bottom: 48px; }
-
-  .promise-line {
-    font-size: 18px; color: rgba(255,255,255,0.8);
-    line-height: 1.8; margin-bottom: 8px;
-  }
-
-  .promise-line.highlight {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px; color: white;
-    font-style: italic; font-weight: 400;
-  }
-
-  .promise-line strong { color: var(--amber); }
-
-  .promise-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--amber); color: white;
-    padding: 16px 32px; border-radius: 8px;
-    font-size: 16px; font-weight: 500;
+  .sugar-link {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 13px 20px; border-radius: 8px;
+    font-size: 14px; font-weight: 500;
     text-decoration: none;
-    transition: background 0.2s, transform 0.1s;
+    transition: opacity 0.2s, transform 0.1s;
   }
 
-  .promise-cta:hover { background: var(--amber-dark); transform: translateY(-1px); }
+  .sugar-link:hover { opacity: 0.88; transform: translateY(-1px); }
+  .sugar-link-gumroad { background: var(--amber); color: white; }
+  .sugar-link-amazon { background: white; color: var(--brown); border: 1px solid var(--border); }
+  .sugar-link-icon { font-size: 16px; }
+
+  .sugar-desc h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--brown); margin-bottom: 16px; line-height: 1.3;
+  }
+
+  .sugar-desc p { font-size: 16px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; }
+
+  .sugar-features { list-style: none; margin-bottom: 28px; }
+
+  .sugar-features li {
+    font-size: 14px; color: var(--text);
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .sugar-features li:last-child { border-bottom: none; }
 
   /* FOOTER */
   footer { background: var(--brown); color: white; padding: 48px 5% 32px; }
@@ -324,11 +533,14 @@
   }
 
   @media (max-width: 768px) {
-    .vm-grid { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; padding: 110px 5% 60px; min-height: auto; }
+    .hero-visual { display: none; }
+    .about { grid-template-columns: 1fr; }
+    .about-image { display: none; }
     .footer-top { grid-template-columns: 1fr; gap: 28px; }
     .nav-links { display: none; }
-    .purpose-statement { padding: 32px 24px; }
-    .standout { padding: 24px 28px; }
+    .email-form { flex-direction: column; }
+    .sugar-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -337,168 +549,314 @@
 <nav>
   <a href="/" class="nav-logo"><img src="data:image/png;base64,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" alt="The Baking Business School" style="height:40px;width:40px;border-radius:50%;background:#2C1A0E;padding:3px;vertical-align:middle;"></a>
   <ul class="nav-links">
-    <li><a href="/#courses">Programmes</a></li>
-    <li><a href="/#sugar-blueprint">The Sugar Blueprint</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="/#testimonials">Results</a></li>
-    <li><a href="/#freebie" class="nav-cta">Free Guide</a></li>
+    <li><a href="#courses">Programmes</a></li>
+    <li><a href="#sugar-blueprint">The Baking Business Strategy</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="https://instagram.com/TheBakingBusinessSchool" target="_blank">Instagram</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#freebie" class="nav-cta">Free Audit</a></li>
+   <li><a href="https://app.thebakingbusinessschool.com" target="_blank" rel="noopener noreferrer" style="background:#C17817;color:#FAF7F2;padding:8px 16px;border-radius:8px;font-weight:700;">BakeryOps</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<div class="about-hero">
-  <div class="about-hero-eyebrow">About The Baking Business School</div>
-  <h1>The World's Leading Institution for Baking Entrepreneurship</h1>
-  <p class="about-hero-sub">We were founded on a simple but powerful belief: exceptional baking talent deserves exceptional business success.</p>
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">The Global Institution for Baking Entrepreneurship</span>
+    <h1>Your baking skills deserve a <em>world-class</em> business behind them</h1>
+    <p class="hero-sub">The Baking Business School equips bakers and bakery owners worldwide with the business knowledge, practical systems, and professional credentials to build enterprises that last.</p>
+    <div class="hero-actions">
+      <a href="#courses" class="btn-primary">Explore Programmes</a>
+      <a href="#freebie" class="btn-secondary">Get the free starter guide →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-card">
+      <div class="stat-icon">🎓</div>
+      <div>
+        <div class="stat-label">Our purpose</div>
+        <div class="stat-value">Transforming bakers into entrepreneurs, globally</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">3×</span>
+      <span class="stat-label">Average price increase after our pricing module</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Practical, every lesson produces a real business output</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">Hundreds</span>
+      <span class="stat-label">Students and customers served worldwide</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-dot"></div> Structured professional programmes</div>
+  <div class="trust-item"><div class="trust-dot"></div> Practical, not theoretical</div>
+  <div class="trust-item"><div class="trust-dot"></div> Built exclusively for the baking industry</div>
+  <div class="trust-item"><div class="trust-dot"></div> Serving bakers worldwide</div>
 </div>
 
-<!-- OPENING -->
-<section class="content-section opening">
-  <div class="content-inner">
-    <div class="section-label">Who We Are</div>
-    <p class="body-text">The Baking Business School is a pioneering institution dedicated to transforming bakers into entrepreneurs and elevating the baking industry through world-class business education.</p>
-    <p class="body-text">For too long, bakers have been taught how to create extraordinary products but have been left to navigate the complexities of entrepreneurship entirely on their own. As a result, countless talented professionals remain trapped in cycles of overwork, underpricing, inconsistent income, and unsustainable growth.</p>
-
-    <div class="standout">
-      The Baking Business School exists to change that narrative.
+<!-- PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="section-label">Sound familiar?</div>
+  <h2 class="section-title">Great bakers shouldn't stay broke</h2>
+  <p class="section-sub">The skills are there. The passion is real. But most bakers are held back by the same business blind spots, and nobody in the industry has addressed them. Until now.</p>
+  <div class="problems-grid">
+    <div class="problem-card">
+      <div class="problem-num">01</div>
+      <h3>Underpricing your products</h3>
+      <p>Charging for ingredients but forgetting time, skill, and expertise. The price doesn't reflect the value, and the business suffers for it.</p>
     </div>
-
-    <p class="body-text">We are building a new generation of baking entrepreneurs — equipped not only with technical excellence but with the strategic thinking, systems, leadership capabilities, and business acumen required to build profitable, scalable, and enduring enterprises.</p>
-    <p class="body-text">Our purpose extends beyond education. <strong>We are professionalising the business side of baking.</strong></p>
-    <p class="body-text">By combining practical business frameworks with entrepreneurial leadership development, we are helping bakers transition from self-employed creators into founders, CEOs, employers, and industry leaders.</p>
-  </div>
-</section>
-
-<!-- PURPOSE -->
-<section class="content-section purpose">
-  <div class="content-inner">
-    <div class="section-label">Our Belief</div>
-    <h2 class="section-title">Baking is more than a craft</h2>
-    <p class="body-text">At The Baking Business School, we believe baking is an economic engine — capable of creating wealth, employment, innovation, and multi-generational impact when supported by sound business principles.</p>
-    <p class="body-text">Our educational ecosystem equips bakers with the tools required to thrive in a rapidly evolving marketplace. We serve a diverse global community of ambitious individuals — from home bakers and cake artists to bakery owners and emerging food entrepreneurs — united by a shared vision: to build businesses that create both economic value and lasting impact.</p>
-
-    <div class="purpose-statement">
-      <p>Our ambition is not simply to educate bakers. <span>Our ambition is to establish baking entrepreneurship as a recognised discipline — and The Baking Business School as its global authority.</span></p>
+    <div class="problem-card">
+      <div class="problem-num">02</div>
+      <h3>No system for getting customers</h3>
+      <p>Relying on word of mouth and inconsistent social posts. No structured, repeatable method for attracting buyers who are ready to pay.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-num">03</div>
+      <h3>Busy but not profitable</h3>
+      <p>Orders coming in but nothing left at the end of the month. Hard work without the right business structure stays hard work indefinitely.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-num">04</div>
+      <h3>No business foundation</h3>
+      <p>No business plan, no clear goals, no growth strategy. The talent is there. The business infrastructure is not. That is exactly what we build.</p>
     </div>
   </div>
 </section>
 
-<!-- EXPERTISE -->
-<section class="content-section expertise">
-  <div class="content-wide">
-    <div class="expertise-intro content-inner" style="max-width:800px;">
-      <div class="section-label">What We Teach</div>
-      <h2 class="section-title">The complete entrepreneur</h2>
-      <p class="body-text">Unlike traditional culinary institutions that focus exclusively on technical mastery, we focus on the complete entrepreneur. Our programmes equip students with expertise across every dimension of building a sustainable baking business.</p>
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <div class="section-label">Our Programmes</div>
+  <h2 class="section-title">Education built for the baking industry</h2>
+  <p class="section-sub">Structured programmes, practical frameworks, and professional certificates, designed exclusively for bakers who are building serious businesses.</p>
+  <div class="courses-grid">
+
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-tag" style="background:rgba(30,107,60,0.2);color:#4ade80;">Free Resource</div>
+        <h3>Pricing for Profit</h3>
+      </div>
+      <div class="course-body">
+        <p class="course-desc">The complete system for pricing baked goods to cover costs, pay yourself properly, and still attract the right customers.</p>
+        <ul class="course-features">
+          <li><span class="check">✓</span> True cost calculation formula</li>
+          <li><span class="check">✓</span> How to raise prices without losing clients</li>
+          <li><span class="check">✓</span> Market positioning strategies</li>
+          <li><span class="check">✓</span> Printable pricing worksheets</li>
+        </ul>
+        <div class="course-price">
+          <span class="price-amount" style="color:#1E6B3C;">FREE</span>
+          <span class="price-label">complimentary resource</span>
+        </div>
+        <a href="https://bakingacademy5.gumroad.com/l/bzywn" class="btn-course" style="background:#1E6B3C;">Access the Free Resource</a>
+      </div>
     </div>
-    <div class="expertise-grid">
-      <div class="expertise-item">
-        <strong>Business strategy and enterprise development</strong>
-        <p>Building businesses with structure, purpose, and long-term viability.</p>
+
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-tag">Programme</div>
+        <h3>From Kitchen to Customer</h3>
       </div>
-      <div class="expertise-item">
-        <strong>Financial management and profitability</strong>
-        <p>Understanding the numbers that drive sustainable growth.</p>
+      <div class="course-body">
+        <p class="course-desc">The complete system for getting your first 50 paying clients, with real scripts, exact strategies, and nothing that does not directly produce results.</p>
+        <ul class="course-features">
+          <li><span class="check">✓</span> 7 chapters covering the full client journey</li>
+          <li><span class="check">✓</span> Word-for-word enquiry response scripts</li>
+          <li><span class="check">✓</span> Local visibility &amp; referral strategies</li>
+          <li><span class="check">✓</span> 30-day action calendar included</li>
+        </ul>
+        <div class="course-price">
+          <span class="price-amount">£27</span>
+          <span class="price-label">Full Access</span>
+        </div>
+        <a href="https://bakingacademy5.gumroad.com/l/lbimoi" class="btn-course">Enrol in This Programme</a>
       </div>
-      <div class="expertise-item">
-        <strong>Pricing psychology and revenue optimisation</strong>
-        <p>Charging what the work is worth — and communicating it with confidence.</p>
+    </div>
+
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-tag">Programme</div>
+        <h3>The Baker's Empire Blueprint</h3>
       </div>
-      <div class="expertise-item">
-        <strong>Brand positioning and market differentiation</strong>
-        <p>Standing out in a crowded market with a clear, compelling identity.</p>
+      <div class="course-body">
+        <p class="course-desc">The complete business operating system for ambitious bakers, pricing, marketing, systems, mindset, and a £100K revenue roadmap.</p>
+        <ul class="course-features">
+          <li><span class="check">✓</span> 7 modules of in-depth business strategy</li>
+          <li><span class="check">✓</span> Real pricing formulas with worked examples</li>
+          <li><span class="check">✓</span> 6 essential business tools &amp; templates</li>
+          <li><span class="check">✓</span> The £100K baker income roadmap</li>
+        </ul>
+        <div class="course-price">
+          <span class="price-amount">£35</span>
+          <span class="price-label">Full Access</span>
+        </div>
+        <a href="https://bakingacademy5.gumroad.com/l/zybohy" class="btn-course">Enrol in This Programme</a>
       </div>
-      <div class="expertise-item">
-        <strong>Customer acquisition and retention</strong>
-        <p>Building a loyal customer base through systems, not hope.</p>
+    </div>
+
+    <div class="course-card featured">
+      <div class="course-header">
+        <div class="course-tag">Certificate Programme</div>
+        <h3>Baking Business Foundations Certificate</h3>
       </div>
-      <div class="expertise-item">
-        <strong>Digital marketing and technology integration</strong>
-        <p>Reaching the right customers on the right channels, consistently.</p>
+      <div class="course-body">
+        <p class="course-desc">The only professionally structured certificate programme for baking entrepreneurs. Five modules, a complete business plan, and a professionally issued certificate on completion.</p>
+        <ul class="course-features">
+          <li><span class="check">✓</span> 5 structured modules with full workbooks</li>
+          <li><span class="check">✓</span> Complete baking business plan produced</li>
+          <li><span class="check">✓</span> Submission review by The Baking Business School</li>
+          <li><span class="check">✓</span> Professional certificate issued on completion</li>
+        </ul>
+        <div class="course-price">
+          <span class="price-amount">£97</span>
+          <span class="price-label">Founding Cohort Enrolment</span>
+        </div>
+        <a href="https://bakingacademy5.gumroad.com/l/mrmilf" class="btn-course">Apply for the Certificate</a>
       </div>
-      <div class="expertise-item">
-        <strong>Operational systems and scalability</strong>
-        <p>Building a business that can grow without breaking the founder.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FREE DOWNLOAD -->
+<section class="lead-magnet" id="freebie">
+  <div class="lead-inner">
+    <div class="section-label" style="color: var(--amber);">Free Download</div>
+    <h2 class="section-title">The Menu Profitability Audit</h2>
+    <p class="section-sub">Find out exactly which item on your menu is secretly robbing you blind. Takes 15 minutes. No accounting degree required. Just bakery-floor math.</p>
+    <div style="margin-top: 36px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://bakingacademy5.gumroad.com/l/bzywn" style="background: var(--amber); color: white; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: background 0.2s; display: inline-block;">Download Free Audit →</a>
+      <a href="blog.html" style="background: rgba(255,255,255,0.1); color: white; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); display: inline-block;">Read the Blog</a>
+    </div>
+    <p class="lead-note" style="margin-top: 16px;">Free to download. No email required.</p>
+  </div>
+</section>
+
+<!-- SUGAR BLUEPRINT -->
+<section class="sugar-blueprint" id="sugar-blueprint">
+  <div class="sugar-inner">
+    <div class="section-label">Featured Publication</div>
+    <h2 class="section-title">The Baking Business Strategy</h2>
+    <p class="section-sub">A practical guide for bakers who are ready to build a more profitable business, built on The Sugar Blueprint™, the founding framework taught at The Baking Business School.</p>
+    <div class="sugar-grid">
+      <div class="sugar-book">
+        <span class="sugar-book-icon">📖</span>
+        <div class="sugar-book-title">The Baking Business Strategy</div>
+        <div class="sugar-book-pub">The Baking Business School</div>
+        <div class="sugar-links">
+          <a href="https://bakingacademy5.gumroad.com/l/lzgvho" class="sugar-link sugar-link-gumroad">
+            <span class="sugar-link-icon">🛒</span> Get on Gumroad
+          </a>
+          <a href="https://books2read.com/u/b5dwVG" class="sugar-link sugar-link-amazon">
+            <span class="sugar-link-icon">📚</span> Get on All Other Retailers
+          </a>
+        </div>
       </div>
-      <div class="expertise-item">
-        <strong>Leadership, innovation, and entrepreneurial mindset</strong>
-        <p>Developing the thinking that separates founders from employees.</p>
+      <div class="sugar-desc">
+        <h3>Everything you need to build a baking business that works</h3>
+        <p>The Baking Business Strategy is the complete roadmap for bakers who want to stop guessing and start growing. Built on The Sugar Blueprint™ framework, it gives you a clear, step-by-step system for building a profitable baking business from wherever you are right now.</p>
+        <p>Whether you are just starting out or have been baking for years without the financial results you deserve, this book will change how you think about your business.</p>
+        <ul class="sugar-features">
+          <li><span class="check">✓</span> Pricing strategies that actually work</li>
+          <li><span class="check">✓</span> How to find and keep loyal customers</li>
+          <li><span class="check">✓</span> Marketing without feeling salesy</li>
+          <li><span class="check">✓</span> Building systems so your business runs smoothly</li>
+          <li><span class="check">✓</span> The mindset shift every baker needs to make</li>
+        </ul>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://bakingacademy5.gumroad.com/l/lzgvho" class="btn-primary">Get on Gumroad</a>
+          <a href="https://books2read.com/u/b5dwVG" class="btn-secondary">Get on All Other Retailers →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VISION AND MISSION -->
-<section class="content-section vision-mission">
-  <div class="content-wide">
-    <div class="content-inner" style="max-width:800px; margin-bottom: 0;">
-      <div class="section-label">Direction</div>
-      <h2 class="section-title">Where we are going</h2>
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label">Results</div>
+  <h2 class="section-title">Bakers who did the work</h2>
+  <p class="section-sub">What happens when serious bakers get serious business education.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I was charging £2.50 for cakes that took me two hours to make. After the pricing programme I restructured everything and my revenue doubled within six weeks."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SA</div>
+        <div>
+          <div class="testi-name">Sarah A.</div>
+          <div class="testi-role">Home baker, Birmingham</div>
+        </div>
+      </div>
     </div>
-    <div class="vm-grid">
-      <div class="vm-card">
-        <div class="vm-card-label">Our Vision</div>
-        <p>To become the world's most trusted institution for baking entrepreneurship, empowering millions of bakers to build profitable, scalable, and enduring businesses.</p>
-      </div>
-      <div class="vm-card">
-        <div class="vm-card-label">Our Mission</div>
-        <p>To transform baking talent into entrepreneurial excellence through world-class business education, practical systems, strategic leadership development, and a thriving global ecosystem.</p>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I finally feel like a business owner, not just someone who bakes. The starter guide alone was worth more than courses I have paid hundreds for."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">TN</div>
+        <div>
+          <div class="testi-name">Taiwo N.</div>
+          <div class="testi-role">Micro bakery owner, London</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- VALUES -->
-<section class="content-section values">
-  <div class="content-wide">
-    <div class="content-inner" style="max-width:800px; margin-bottom: 0;">
-      <div class="section-label">What We Stand For</div>
-      <h2 class="section-title">Our values</h2>
-    </div>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-name">Excellence</div>
-        <p>We pursue the highest standards in everything we teach and build. Our programmes are rigorous, our materials are professional, and our certificates reflect real work done.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Entrepreneurship</div>
-        <p>We cultivate founders, innovators, and business leaders — not just skilled bakers. Every programme is designed to develop entrepreneurial thinking alongside practical knowledge.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Practicality</div>
-        <p>We prioritise implementation over information. Every lesson produces a real business output. Every module moves the student's business forward. Theory without application is not education.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Integrity</div>
-        <p>We build businesses that are ethical, sustainable, and impactful. We say what we mean, deliver what we promise, and hold ourselves to the same standards we teach.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Community</div>
-        <p>We believe growth accelerates when entrepreneurs learn together. The Baking Business School is building a global community of baking entrepreneurs who support, challenge, and elevate each other.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Legacy</div>
-        <p>We build businesses that outlive their founders. Our programmes are not about quick wins — they are about building enterprises with depth, structure, and the capacity to endure.</p>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"The marketing module changed how I show up completely. Within a month I had three new regular clients. Practical, specific, and immediately usable."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">OM</div>
+        <div>
+          <div class="testi-name">Olivia M.</div>
+          <div class="testi-role">Weekend baker, Manchester</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROMISE -->
-<section class="promise">
-  <div class="promise-inner">
-    <div class="section-label">Our Promise</div>
-    <h2>We do not simply teach people how to bake.</h2>
-    <div class="promise-lines">
-      <p class="promise-line">We teach them how to <strong>build institutions around their talent.</strong></p>
-      <p class="promise-line highlight">Because bakers should not merely survive.</p>
-      <p class="promise-line">They should <strong>lead industries.</strong></p>
-      <p class="promise-line">They should <strong>create wealth.</strong></p>
-      <p class="promise-line">They should <strong>build brands.</strong></p>
-      <p class="promise-line">They should <strong>employ others.</strong></p>
-      <p class="promise-line">And they should leave <strong>legacies that endure for generations.</strong></p>
+<!-- ABOUT — INSTITUTIONAL (condensed) -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="section-label">Our Institution</div>
+    <h2 class="section-title">A New Standard in Baking Education</h2>
+    <p class="section-sub">The Baking Business School is a pioneering global institution dedicated to transforming bakers into entrepreneurs and elevating the baking industry through world-class business education.</p>
+    <p class="section-sub" style="margin-top: 16px;">We exist because exceptional baking talent deserves exceptional business success. Our programmes equip bakers worldwide with the strategic thinking, practical systems, and professional credentials required to build profitable, scalable, and enduring enterprises.</p>
+    <div class="about-stats">
+      <div class="about-stat">
+        <span class="about-stat-num">5+</span>
+        <span class="about-stat-label">Structured programmes</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">Global</span>
+        <span class="about-stat-label">Reach and community</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">100%</span>
+        <span class="about-stat-label">Industry-specific</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">Real</span>
+        <span class="about-stat-label">Business outcomes</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">Hundreds</span>
+        <span class="about-stat-label">Students and customers served worldwide</span>
+      </div>
     </div>
-    <a href="/#courses" class="promise-cta">Explore Our Programmes →</a>
+    <a href="about.html" class="btn-secondary" style="display:inline-flex; margin-top: 8px;">Read our full story →</a>
+  </div>
+  <div class="about-image">
+    <div class="about-image-icon">🏛️</div>
+    <p class="about-quote">"Baking is more than a craft. It is an economic engine capable of creating wealth, employment, innovation, and multi-generational impact, when supported by sound business principles."</p>
+    <p class="about-quote-attr">The Baking Business School</p>
   </div>
 </section>
 
@@ -512,9 +870,9 @@
     <div class="footer-col">
       <h4>Learn</h4>
       <ul>
-        <li><a href="/#courses">All Programmes</a></li>
-        <li><a href="/#freebie">Free Guide</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="#courses">All Programmes</a></li>
+        <li><a href="#freebie">Free Guide</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -522,12 +880,12 @@
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="https://instagram.com/TheBakingBusinessSchool">Instagram</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 The Baking Business School. All rights reserved.</span>
+    <span>© 2026 The Baking Business School. All rights reserved.</span>
     <span>thebakingbusinessschool.com</span>
   </div>
 </footer>
